@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  segmage-data-connector:
+    image: segmage/dataconnector:latest
+    hostname: segmage-data-connector
+    restart: always
+    # environment:
+      # - CollectUrl="https://collect.segmage.com"   # Use only for on-premise configurations.
+      # - Certificate__Path="certs/certificate.pfx"  # Optional: Path to your custom certificate.
+      # - Certificate__Password="YourSecurePassword" # Optional: Password for the certificate.
+      # - PageSize=5000                              # Optional: Page size for SQL queries (default is 5000).
+      # - TZ=Europe/Istanbul                         # Optional: Specify your timezone.
+    ports:
+      - "24443:24443"                                # Map the external port for UI access.
+    volumes:
+      - logs:/app/logs                               # Path for storing error log files.
+      - db:/app/db                                   # Path for storing the database file.
+
+volumes:
+  db:
+  logs:
