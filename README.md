@@ -96,7 +96,7 @@ docker-compose down
 Or, if running without Docker Compose:
 ```bash
 docker stop segmage-data-connector
-   docker rm segmage-data-connector
+docker rm segmage-data-connector
 ```
 
 ---
